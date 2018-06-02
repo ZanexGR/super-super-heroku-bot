@@ -1,15 +1,11 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const Discord = require("discord.js"); // use discord.js
+const PREFIX = "/" // bot's prefix
 
-client.on('ready', () => {
-    console.log('I am ready!');
+var bot = new Discord.Client(); // sets Discord.Client to bot
+
+bot.on("ready", function() { // when the bot starts up, set its game to Use *help and tell the console "Booted up!"
+    bot.user.setGame("playing zanex dick") // sets the game the bot is playing
+    console.log("Booted up!") // messages the console Booted up!
 });
 
-client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.reply('pong');
-  	}
-});
-
-// THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.token);
